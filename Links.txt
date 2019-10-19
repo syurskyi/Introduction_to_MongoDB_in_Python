@@ -1,0 +1,8 @@
+https://www.datacamp.com/community/tutorials/introduction-mongodb-python
+https://www.w3schools.com/python/python_mongodb_getstarted.asp
+https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb
+https://www.geeksforgeeks.org/mongodb-and-python/
+https://api.mongodb.com/python/current/tutorial.html
+https://realpython.com/introduction-to-mongodb-and-python/
+http://altons.github.io/python/2013/01/21/gentle-introduction-to-mongodb-using-pymongo/
+http://zetcode.com/python/pymongo/
