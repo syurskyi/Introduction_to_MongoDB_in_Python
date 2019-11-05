@@ -1,0 +1,3 @@
+db.cars.find()
+
+db.cars.find({$where: function() {if (this["color"] == "red") {return true;}}})
