@@ -1,0 +1,9 @@
+mongo localhost:27017
+
+mongo localhost:27017/test
+
+mongo --nodb
+
+help
+
+db
