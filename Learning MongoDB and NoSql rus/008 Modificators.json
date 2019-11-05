@@ -1,0 +1,15 @@
+db.cars.find()
+
+db.cars.update({"color": "red"}, {color: "blue"})
+
+db.cars.update({"color": "green"}, {$set:{color: "yellow"}})
+
+db.cars.find()
+
+db.cars.update({"color": "yellow"}, {$unset:{model: "toyota"}})
+        
+db.cars.find()
+
+db.cars.update({"color": "yellow"}, {inc:{maxSpeed:5}})
+
+db.cars.find()
