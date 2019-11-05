@@ -1,0 +1,28 @@
+let client = require('mongodb').MongoClient;
+const connectionString = "mongodb://localhost:27017";
+
+(async () => {
+    let connection = await client.connect(connectionString, {useNewUrlParser: true});
+    let db = connection.db('usersdb');
+    let collection = db.collection('users');
+
+    try{
+        //   await collection.insertMany([
+        //      {name:'Tim', country:'Austria', age:26, languages:['German', 'English', 'Danish', 'Javascript']},
+        //      {name:'John', country:'Austria', age:15, languages:['German', 'Swedish', 'Ukrainian']},
+        //      {name:'Hannah', country:'Sweden', age:26, languages:['Swedish', 'Romanian', 'Russian']},      
+        //      {name:'Jane', country:'Ukraine', age:38, languages:['Ukrainian', 'English', 'Spanish']},
+        //      {name:'Joey', country:'Brasil', age:67, languages:['[Portugal', 'English', 'Danish', 'Fortran']},
+        //      {name:'John', country:'Austria', age:26, languages:['Polish', 'English', 'Ukrainian']},
+        // ]);
+
+        const result = await collection.aggregate([
+            {$match:{'age':{'$gt':15}}}
+        ]).toArray();
+
+        console.log(JSON.stringify(result));
+        
+    }finally
+        connection.close();
+    }
+})().catch(error => console.log(error));

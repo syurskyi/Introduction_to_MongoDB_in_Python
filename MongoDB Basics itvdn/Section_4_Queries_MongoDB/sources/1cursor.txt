@@ -1,0 +1,28 @@
+let client = require('mongodb').MongoClient;
+const connectionString = "mongodb://localhost:27017";
+
+(async () => {
+    let connection = await client.connect(connectionString, {useNewUrlParser: true});
+    let db = connection.db('usersdb');
+    let collection = db.collection('users');
+
+    try{
+       
+        await collection.insertMany([
+            {name:'Jessica', age:20, occupation:'student'},
+            {name:'John', age:27, occupation:'laywer'},
+            {name:'Tom', age:31, occupation:'engineer'},      
+            {name:'John', age:45, occupation:'doctor'},
+        ]);
+
+        const cursor = collection.find({name:'John'});
+
+        while(await cursor.hasNext()){
+            const doc = await cursor.next();
+            console.log(doc);
+        }
+
+    }finally
+        connection.close();
+    }
+})().catch(error => console.log(error));

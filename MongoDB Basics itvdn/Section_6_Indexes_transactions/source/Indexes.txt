@@ -1,0 +1,29 @@
+
+const { MongoClient } = require('mongodb');
+const uri = 'mongodb://localhost:27017';
+
+
+(async () => {
+    const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+
+    const collection = client.db('usersdb').collection('users');
+
+    // for(let i = 0; i<=10000; i++){
+    //   await collection.insertOne({name:randomName(), score:i});
+    // }
+    // console.log('Generating dump data is done');
+
+    //await collection.createIndex({score:1});
+    // await collection.createIndex({name:1,score:1}); 
+    await collection.dropIndex({score:1});
+    await collection.dropIndex({name:1,score:1});
+  
+    let res = await collection.find({name:'a'}).explain();
+    console.log(res);
+
+
+})().catch(error => console.log(error));
+
+async function randomName(){
+  return (Math.random()+1).toString(36).substring(2);
+}

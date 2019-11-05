@@ -1,0 +1,18 @@
+let client = require('mongodb').MongoClient;
+const connectionString = "mongodb://localhost:27017";
+
+(async () => {
+    let connection = await client.connect(connectionString, {useNewUrlParser: true});
+    let db = connection.db('usersdb');
+    let collection = db.collection('users');
+
+    try{
+        const cursor = collection.find({$or:[{occupation:'doctor'}, {age:{$lt:45}}]});
+
+        const result = await cursor.toArray();
+
+        console.log(result);
+    }finally
+        connection.close();
+    }
+})().catch(error => console.log(error));
