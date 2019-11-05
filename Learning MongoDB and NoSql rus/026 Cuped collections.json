@@ -1,0 +1,2 @@
+db.createCollection("myCapped", {"capped": true, "size":10000, "max":100}
+db.runCommand("convertToCapped": "food", "size":10000})
