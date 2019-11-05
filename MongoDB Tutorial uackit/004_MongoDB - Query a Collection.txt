@@ -1,0 +1,46 @@
+// Return all Documents
+
+db.musicians.find()
+
+// Add Filtering Criteria
+
+db.artists.find({ artistname : "Deep Purple" })
+
+// Format the Results
+
+db.artists.find({ artistname : "Deep Purple" }).pretty()
+
+// More Filtering Options
+// Specify AND Conditions
+
+db.musicians.find( { instrument: "Drums", born: { $lt: 1950 } } )
+
+// Specify OR Conditions
+
+db.musicians.find(
+   {
+     $or: [ { instrument: "Drums" }, { born: { $lt: 1950 } } ]
+   }
+)
+
+// The $in Operator
+
+db.musicians.find( { instrument: { $in: [ "Vocals", "Guitar" ] } } )
+
+// Query an Array of Documents
+
+db.artists.find(
+   {
+      albums: {
+                $elemMatch: {
+                     year: { $gt: 2000 }
+                }
+      }
+   }
+).pretty()
+
+// The db.collection.findOne() Method
+
+db.musicians.findOne( )
+
+db.musicians.find( )
