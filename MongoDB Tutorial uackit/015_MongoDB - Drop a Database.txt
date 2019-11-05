@@ -1,0 +1,11 @@
+// The db.dropDatabase() Method
+
+db.dropDatabase()
+
+show databases
+
+// The dropDatabase Command
+
+use test
+db.runCommand( { dropDatabase: 1 } )
+
