@@ -1,0 +1,15 @@
+db.users.find({"username": "user101"}).explain()
+
+db.users.find({"username": "user101"}).limit(1).explain()
+
+db.users.find({"username": "user101"}).limit(1).explain().millis
+
+db.users.find({"username": "user99999"}).limit(1).explain().millis
+
+db.users.find({"username": "user999999"}).limit(1).explain().millis
+
+db.users.ensureIndex({"username": 1})
+
+db.users.find({"username": "user101"}).explain().millis
+
+db.users.find({"username": "user999999"}).explain().millis
