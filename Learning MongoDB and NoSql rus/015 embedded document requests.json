@@ -1,0 +1,12 @@
+db.cars.find()
+
+db.cars.find({
+  "name": {
+    "first": "Max",
+    "last": "Black"
+  }
+})
+
+db.cars.find({"name.first": "Max"})
+
+db.cars.find({"name.first": "Max", "name.last": "Black"})
