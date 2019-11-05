@@ -1,0 +1,34 @@
+db.cars.find()
+
+db.cars.findOne()
+
+db.cars.findOne({
+  color: "red"
+})
+
+
+db.cars.find({
+  color: "red"
+})
+
+db.cars.findOne({
+  color: "red"
+})
+
+db.cars.find({
+  maxSpeed: 225
+})
+
+db.cars.find({
+  color: "red",
+  maxSpeed: 225
+})
+
+db.cars.find({color: "red", maxSpeed: 225}, {color:1})
+
+db.cars.find({color: "red", maxSpeed: 225}, {color:1, _id:0})
+
+
+db.cars.find({color: "red", maxSpeed: 225}, {color:1, _id:0, maxSpeed:1})
+
+
