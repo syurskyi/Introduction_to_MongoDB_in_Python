@@ -1,0 +1,7 @@
+db.cars.find()
+
+db.cars.ensureIndex({"name.last": 1})
+
+db.cars.ensureIndex({"lastOwners": 1})
+
+db.cars.ensureIndex({"lastOwners.fullname": 1})
