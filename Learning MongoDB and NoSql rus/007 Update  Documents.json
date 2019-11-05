@@ -1,0 +1,6 @@
+db.cars.find()
+
+db.cars.update({"color": "red"}, {"color": "green", "maxSpeed": 240})
+
+var car = {color: "red", maxSpeed:225}
+db.cars.update({maxSpeed:245}, car)
