@@ -1,0 +1,25 @@
+db.cars.find()
+
+db.cars.update({color: "yellow"}, {$push: {owner: {name: "Max", lastName: "Smith"}}}) 
+
+db.cars.find()
+
+db.cars.update({color: "yellow"}, {$push: {owner: {$each: [{name: "Nick", lastName: "Dow"}]}}) 
+
+db.cars.find()
+
+db.cars.update({color: "yellow"}, {$addToSet: {owner: {name: "Mike", lastName: "Black"}}}) 
+
+db.cars.find()
+
+db.cars.update({color: "yellow"}, {$addToSet: {owner: {name: "Mike", lastName: "Black"}}}) 
+
+$slice "$slice" : -10
+
+$sort "$sort" : {"name" : -1}
+
+$pull{"$pull" : {"todo" : "laundry"}}
+
+$pop{"$pop" : {"key" : 1}}{"$pop" : {"key" : -1}}
+
+{"$inc" : {"comments.0.votes" : 1}}  {"$set" : {"comments.$.author" : "Jim"}}
