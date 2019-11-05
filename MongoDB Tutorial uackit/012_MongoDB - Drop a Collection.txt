@@ -1,0 +1,11 @@
+// Drop a Collection that Exists
+
+show collections
+
+db.artists.drop()
+
+show collections
+
+// Attempt to Drop a Collection that doesn't Exist
+
+db.artists.drop()
