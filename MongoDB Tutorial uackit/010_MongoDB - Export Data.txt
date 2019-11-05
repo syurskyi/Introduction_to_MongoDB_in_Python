@@ -1,0 +1,29 @@
+// Export a Collection to a JSON File
+
+mongoexport --db music --collection artists --out /data/dump/music/artists.json
+
+// Export a Collection to a CSV File
+
+mongoexport --db music --collection artists --type=csv --fields _id,artistname --out /data/dump/music/artists.csv
+
+// Export the results of a Query
+
+mongoexport --db music --collection artists --query '{"artistname": "Miles Davis"}' --out /data/dump/music/miles_davis.json
+
+// Other Options
+// The --limit Option
+
+mongoexport --db music --collection artists --limit 3 --out /data/dump/music/3_artists.json
+
+// The --sort Option
+
+mongoexport --db music --collection artists --limit 3 --sort '{_id: 1}' --out /data/dump/music/3_artists_sorted.json
+
+// The --skip Option
+
+mongoexport --db music --collection artists --limit 3 --sort '{_id: 1}' --skip 2 --out /data/dump/music/3_artists_sorted_skipped.json
+
+// The --pretty Option
+
+mongoexport --db music --collection artists --query '{"artistname": "Miles Davis"}' --pretty --out /data/dump/music/miles_davis_pretty.json
+
