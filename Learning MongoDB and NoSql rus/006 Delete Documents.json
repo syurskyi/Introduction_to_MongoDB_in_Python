@@ -1,0 +1,11 @@
+db.cars.find()
+
+db.cars.remove({
+  color:"red" 
+})
+
+db.cars.remove({})
+
+db.cars.find()
+
+db.cars.drop()
