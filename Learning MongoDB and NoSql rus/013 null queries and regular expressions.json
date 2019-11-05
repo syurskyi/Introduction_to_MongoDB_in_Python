@@ -1,0 +1,9 @@
+db.cars.find()
+
+db.cars.find({color:null})
+
+db.cars.find({maxSpeed:null})
+
+db.cars.find({color: {"$in": [null], "$exists": true}})
+
+db.cars.find({color: /r[a-z]*/})
