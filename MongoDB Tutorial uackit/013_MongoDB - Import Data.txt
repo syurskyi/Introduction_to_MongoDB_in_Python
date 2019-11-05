@@ -1,0 +1,25 @@
+// Import JSON File
+
+mongoimport --db music --file /data/dump/music/artists.json
+
+show collections
+
+db.artists.find()
+
+// Specify a Collection Name
+
+mongoimport --db music --collection jazz --file /data/dump/music/miles_davis.json
+
+show collections
+
+db.jazz.find().pretty()
+
+// Import CSV File
+// With Header Row
+
+mongoimport --db music --collection catalog --type csv --headerline --file /data/dump/music/catalog.csv
+
+// Without Header Row
+
+mongoimport --db music --collection producers --type csv --fields name,born --file /data/dump/music/producers.csv
+
