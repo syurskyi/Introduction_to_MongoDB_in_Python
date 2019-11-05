@@ -1,0 +1,96 @@
+# One-to-One Relationship
+
+db.artists.insert(
+    {
+        _id : 2,
+        artistname : "Prince",
+        address :   {
+                        street : "Audubon Road",
+                        city : "Chanhassen",
+                        state : "Minnesota",
+                        country : "United States"
+                    }
+    }
+)
+
+
+// One-to-Many Relationship
+
+db.artists.insert(
+    {
+        _id : 3,
+        artistname : "Moby",
+        albums : [
+                    {
+                        album : "Play",
+                        year : 1999,
+                        genre : "Electronica"
+                    },
+                    {
+                        album : "Long Ambients 1: Calm. Sleep.",
+                        year : 2016,
+                        genre : "Ambient"
+                    }
+                ]
+    }
+)
+
+// Document Referenced Relationships
+// Parent Document
+
+db.artists.insert(
+    {
+        _id : 4,
+        artistname : "Rush"
+    }
+)
+
+// Child Documents
+
+db.musicians.insert(
+    {
+        _id : 9,
+        name : "Geddy Lee",
+        instrument : [ "Bass", "Vocals", "Keyboards" ],
+        artist_id : 4
+    }
+)
+
+db.musicians.insert(
+    {
+        _id : 10,
+        name : "Alex Lifeson",
+        instrument : [ "Guitar", "Backing Vocals" ],
+        artist_id : 4
+    }
+)
+
+db.musicians.insert(
+    {
+        _id : 11,
+        name : "Neil Peart",
+        instrument : "Drums",
+        artist_id : 4
+    }
+)
+
+// Querying the Relationship
+
+db.artists.aggregate([
+    {
+      $lookup:
+        {
+          from: "musicians",
+          localField: "_id",
+          foreignField: "artist_id",
+          as: "band_members"
+        }
+   },
+   { $match : { artistname : "Rush" } }
+]).pretty()
+
+
+db.artists.find( { artistname : "Rush" } )
+
+// When to use Embedded Documents vs Referenced Documents
+
