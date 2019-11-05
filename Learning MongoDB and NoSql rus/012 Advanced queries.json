@@ -1,0 +1,11 @@
+db.cars.find()
+
+db.cars.find({maxSpeed: {$gte:200, $lte:230}})
+
+db.cars.find({maxSpeed: {$ne:250}})
+
+db.cars.find({maxSpeed: {$in:[200, 225, 230]}})
+
+db.cars.find({maxSpeed: {$and:[{color: "red"}, {masSpeed: 225}]})
+
+db.cars.find({maxSpeed: {$or:[{color: "red"}, {masSpeed: 225}]})       
