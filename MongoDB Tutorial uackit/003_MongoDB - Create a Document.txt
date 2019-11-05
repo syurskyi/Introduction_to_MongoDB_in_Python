@@ -1,0 +1,108 @@
+//db.collectionName.insert({ name: "value" })
+//
+//db.artists.insert({ artistname: "Jorn Lande" })
+//
+//db.artists.insert({ _id: 1, artistname: "AC/DC" })
+//
+//db.artists.find()
+
+//# Create Multiple Documents
+
+//db.artists.insert(
+//   [
+//     { artistname: "The Kooks" },
+//     { artistname: "Bastille" },
+//     { artistname: "Gang of Four" }
+//   ]
+//)
+//
+//
+////# Embedded Documents
+//
+//db.artists.insert({
+//    artistname : "Deep Purple",
+//    albums : [
+//                {
+//                    album : "Machine Head",
+//                    year : 1972,
+//                    genre : "Rock"
+//                },
+//                {
+//                    album : "Stormbringer",
+//                    year : 1974,
+//                    genre : "Rock"
+//                }
+//            ]
+//})
+
+//The insertOne() Method
+
+db.musicians.insertOne({ _id: 1, name: "Ian Gillan", instrument: "Vocals" })
+
+// Embedded Documents
+
+db.artists.insertOne({
+    artistname : "Miles Davis",
+    albums : [
+                {
+                    album : "Kind of Blue",
+                    year : 1959,
+                    genre : "Jazz"
+                },
+                {
+                    album : "Bitches Brew",
+                    year : 1970,
+                    genre : "Jazz"
+                }
+            ]
+})
+
+// The insertMany() Method
+
+db.musicians.insertMany(
+   [
+     { _id: 2, name: "Ian Paice", instrument: "Drums", born: 1948 },
+     { _id: 3, name: "Roger Glover", instrument: "Bass", born: 1945 },
+     { _id: 4, name: "Steve Morse", instrument: "Guitar", born: 1954 },
+     { _id: 5, name: "Don Airey", instrument: "Keyboards", born: 1948 },
+     { _id: 6, name: "Jeff Martin", instrument: "Vocals", born: 1969 },
+     { _id: 7, name: "Jeff Burrows", instrument: "Drums", born: 1968 },
+     { _id: 8, name: "Stuart Chatwood", instrument: "Bass", born: 1969 },
+   ]
+)
+
+// Embedded Documents
+
+db.artists.insertMany(
+[
+{
+    artistname : "Robben Ford",
+    albums : [
+                {
+                    album : "Bringing it Back Home",
+                    year : 2013,
+                    genre : "Blues"
+                },
+                {
+                    album : "Talk to Your Daughter",
+                    year : 1988,
+                    genre : "Blues"
+                }
+            ]
+}, {
+    artistname : "Snoop Dogg",
+    albums : [
+                {
+                    album : "Tha Doggfather",
+                    year : 1996,
+                    genre : "Rap"
+                },
+                {
+                    album : "Reincarnated",
+                    year : 2013,
+                    genre : "Reggae"
+                }
+            ]
+}
+])
+

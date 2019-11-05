@@ -1,0 +1,7 @@
+use music
+
+db.artists.insert({ artistname: "The Tea Party" })
+
+show databases
+
+db.artists.find()

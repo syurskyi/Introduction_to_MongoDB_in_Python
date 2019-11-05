@@ -1,0 +1,7 @@
+{
+    "name" : "mongodb_lessons3",
+    "version" : "1.0.0",
+    "dependencies": {
+        "mongodb": "4.2.1"
+    }
+}

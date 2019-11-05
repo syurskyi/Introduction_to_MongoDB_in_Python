@@ -1,0 +1,11 @@
+// # Two ways to Create a Collection
+//# On the Fly
+
+db.artists.insert({ artistname: "The Tea Party" })
+
+//# Using the createCollection() Method
+
+db.createCollection("producers")
+
+//#With Options
+db.createCollection("log", { capped : true, size : 4500500, max : 4000 } )
