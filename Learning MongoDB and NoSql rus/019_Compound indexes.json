@@ -1,0 +1,7 @@
+db.user.find().limit(1)
+
+db.user.find().sort({"age": 1, "username": 1}).explain()
+
+db.user.ensureIndex({"age": 1, "username": 1})
+
+db.user.find().sort({"age": 1, "username": 1}).explain()
