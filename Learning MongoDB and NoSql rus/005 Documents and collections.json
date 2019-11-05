@@ -1,0 +1,20 @@
+var car = {
+  "color": "red",
+  "maxSpeed": 225
+}
+
+db.cars.insert(car)
+
+db.cars.find()
+
+db.cars.insert({
+  "_id": 123
+  "color": "green",
+  "maxSpeed": 230
+})
+
+db.cars.insert({
+  name: "Max",
+  "age": 22
+}
+
