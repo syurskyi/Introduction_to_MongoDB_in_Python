@@ -1,0 +1,17 @@
+// The update() Method
+
+db.musicians.find({ _id: 6 }).pretty()
+
+db.musicians.update(
+        { _id: 6 },
+        { $set:{ instrument : [ "Vocals", "Guitar", "Sitar" ] } }
+    )
+
+db.musicians.find({ _id: 6 }).pretty()
+
+// The save() Method
+
+db.producers.save({ _id: 1, name: "Bob Rock" })
+
+db.producers.find()
+
