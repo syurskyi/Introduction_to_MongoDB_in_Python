@@ -1,0 +1,5 @@
+db.users.getIndexes()
+
+db.users.dropIndex("age_1_username_1")
+
+db.users.getIndexes()
