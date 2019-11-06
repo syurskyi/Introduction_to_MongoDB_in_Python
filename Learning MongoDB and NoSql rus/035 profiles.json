@@ -1,0 +1,21 @@
+db.currentOp()
+
+db.killOp(12301)
+
+db.setProfilingLevel(0)
+db.setProfilingLevel(1, 500)
+db.setProfilingLevel(2)
+
+db.users.insert({name: "Max", age:22})
+db.users.update()
+db.system.profile.find().pretty()
+Object.bsonsize({name:"Max", age:22})
+
+Object.bsonsize(db.users.findOne())
+
+db.users.stats()
+
+mongotop
+mongostat
+
+
