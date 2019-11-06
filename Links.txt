@@ -32,3 +32,26 @@ https://appdividend.com/2018/10/25/mongodb-aggregate-example-tutorial/
 
 MongoDB - Aggregation
 https://www.tutorialspoint.com/mongodb/mongodb_aggregation.htm
+
+MongoDB Tutorial for Beginners - 14 - Backup and Restore
+https://www.youtube.com/watch?v=CHNB38MAvKY
+
+MongoDB: How To Backup With MongoDump
+https://www.youtube.com/watch?v=KrikV7xtQOw
+
+Creating MongoDB Backups and Restoring using mongodump and mongorestore
+https://www.youtube.com/watch?v=2RApNiXsd-g
+
+
+MongoDB Database Backup and Restore
+https://www.youtube.com/watch?v=Dlce4xtjYEo
+
+MongoDB Tutorials at VFX Pieline
+https://www.youtube.com/playlist?list=PLYf4Vz9V1ESqlgJhGqy_nTtKRKTr5zGp1
+https://github.com/vfxpipeline/Python-MongoDB-Example
+
+MongoDB 5 ] Backup & Restore MongoDB database
+https://www.youtube.com/watch?v=AsNeE_95QBA
+
+What are the best terminal emulators for Windows?
+https://www.slant.co/topics/1552/~best-terminal-emulators-for-windows
