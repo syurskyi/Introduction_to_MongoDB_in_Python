@@ -1,0 +1,7 @@
+db.stud.find()
+
+db.classes.find()
+
+db.student.find()
+
+db.student.aggregate({$lookup:{localField:"classes",from:"classes",foreignField:"_id",as:"studClasses"}})

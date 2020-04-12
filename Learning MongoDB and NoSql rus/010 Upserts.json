@@ -1,0 +1,15 @@
+db.cars.find()
+
+db.cars.update({color: "red", $set: {maxSpeed: 225}})
+
+db.cars.update({color: "red", $set: {maxSpeed: 225}}, true)
+
+db.cars.find()
+
+db.cars.insert({color: "red", maxSpeed: 230})
+
+db.cars.find()
+
+db.cars.update({color: "red", $set: {maxSpeed: 240}})
+
+db.cars.update({color: "red", $set: {maxSpeed: 250}}, false, true)

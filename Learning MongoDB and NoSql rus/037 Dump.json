@@ -1,0 +1,9 @@
+db.fsyncLock()
+db.fsyncUnlock()
+
+mongodump
+
+mongodump --o //data/dba/dump
+mongodump --dbpath /data/db
+
+mongorestore

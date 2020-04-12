@@ -1,0 +1,7 @@
+db.users.ensureIndex({"username": 1, "age": 1}
+
+db.users.ensureIndex({"age": 1, "username": 1}
+
+db.users.find({age:106, username: "user999999" }).explain()
+
+db.users.find({age:106, username: "user999999" }).hint({username: 1, age: 1}).explain()

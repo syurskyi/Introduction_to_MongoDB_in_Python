@@ -1,0 +1,42 @@
+db.cars.find()
+
+db.cars.aggregate({$match: {"color": "red"}})
+
+db.cars.aggregate({$match: {"color": "red"}}, {$project: {"color": 1, "_id":0}})
+
+"$project" : {"totalPay" : {"$add" : ["$salary", "$bonus"]}}
+
+"$project" : {"totalPay" : {"$substract" : ["$salary", "$bonus"]}}
+
+"$project" : {"totalPay" : {"$multiply" : ["$salary", "$bonus"]}}
+
+"$project" : {"totalPay" : {"$divide" : ["$salary", "$bonus"]}}
+
+"$project" : {"totalPay" : {"$mod" : ["$salary", "$bonus"]}}
+
+"$project" : {"hireIn" : {"$month" : "$hireDate"}}
+
+"$year", "$month", "$week", "$dayOfMonth", "$dayOfWeek", "$dayOfYears", "$hour", "$minute", "$second"
+
+"$substr", "$concat", "$toLower", "$toUpper"
+
+"$cmp", "$strcasecmp", "$eq", "$ne", "$qt", "$qte", "$lt", "$lte", "$and", "$or", "$not", "$cond", "$isNull"
+
+db.cars.aggregate({$group: {"_id": "$color"}})
+db.cars.aggregate({$group: {"_id": "$color", "sum":{$sum:"$maxSpeed"}}})
+db.cars.aggregate({$group: {"_id": "$color", "sum":{$avg:"$maxSpeed"}}})
+db.cars.aggregate({$group: {"_id": "$color", "sum":{$max:"$maxSpeed"}}})
+db.cars.aggregate({$group: {"_id": "$color", "sum":{$min:"$maxSpeed"}}})
+db.cars.aggregate({$group: {"_id": "$color", "sum":{$first:"$maxSpeed"}}})
+db.cars.aggregate({$group: {"_id": "$color", "sum":{$last:"$maxSpeed"}}})
+
+db.cars.aggregate({$project:{"color":1, _id:0}}, {"$sort":{"color":-1}})
+db.cars.aggregate({$project:{"color":1, _id:0}}, {"$sort":{"color":1}})
+
+db.cars.aggregate({$limit:1})
+db.cars.aggregate({$limit:2})
+db.cars.aggregate({$skip:1})
+
+db.cars.count()
+
+db.runCommand({"distinct":"cars","key":"color"})

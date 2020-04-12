@@ -1,0 +1,8 @@
+db.users.getIndexes({"username": 1}, {"unique": true})
+
+db.users.insert({username: "bob"})
+db.users.insert({username: "bob"})
+
+db.users.getIndexes({"username": 1, age:1}, {"unique": true, "dropDups":true})
+
+db.users.getIndexes({"username": 1, age:1}, {"unique": true, "sparce":true})

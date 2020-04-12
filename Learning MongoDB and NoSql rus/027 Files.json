@@ -1,0 +1,9 @@
+echo "hello world" > foo.txt
+mongofiles put foo.txt
+mongofiles list
+rm foo.txt
+mongofiles get foo.txt
+cat foo.txt
+mongo
+show collections
+db.fs.files.find()
