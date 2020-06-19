@@ -5,7 +5,7 @@ connect('mongoengine_test', host='localhost', port=27017)
 
 # Defining a Document
 
-mport datetime
+import datetime
 
 class Post(Document):
     title = StringField(required=True, max_length=200)

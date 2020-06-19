@@ -56,67 +56,67 @@ post_1.title = 'A Better Post Title'
 post_1.save()       # This will perform an atomic edit on "title"
 print(post_1.title)
 
-# A few things to note about the .save() call:
+# # A few things to note about the .save() call:
+# #
+# #     PyMongo will perform validation when you call .save(). This means it will check the data you’re saving against
+# #     the schema you declared in the class. If the schema (or a constraint) is violated, then an exception is thrown
+# #     and the data is not saved.
+# #     Since Mongo doesn’t support true transactions, there is no way to “roll back” the .save() call like you can in
+# #     SQL databases. Although you can get close to performing transactions with two phase commits,
+# #     they still don’t support rollbacks.
+# #
+# # What happens when you leave off the title?
 #
-#     PyMongo will perform validation when you call .save(). This means it will check the data you’re saving against
-#     the schema you declared in the class. If the schema (or a constraint) is violated, then an exception is thrown
-#     and the data is not saved.
-#     Since Mongo doesn’t support true transactions, there is no way to “roll back” the .save() call like you can in
-#     SQL databases. Although you can get close to performing transactions with two phase commits,
-#     they still don’t support rollbacks.
+# # post_2 = Post(content='Content goes here', author='Michael')
+# # post_2.save()
 #
-# What happens when you leave off the title?
-
-# post_2 = Post(content='Content goes here', author='Michael')
-# post_2.save()
-
-# You should see the following exception:
-
-# raise ValidationError(message, errors=errors)
-# mongoengine.errors.ValidationError:
-# ValidationError (Post:None) (Field is required: ['title'])
+# # You should see the following exception:
 #
-
-# Object Oriented Features
+# # raise ValidationError(message, errors=errors)
+# # mongoengine.errors.ValidationError:
+# # ValidationError (Post:None) (Field is required: ['title'])
+# #
 #
-# With MongoEngine being object oriented, you can also add methods to your subclassed document.
-# Consider the following example where a function is used to modify the default queryset
-# (which returns all objects of the collection). By using this, we can apply a default filter to the class
-# and get only the desired objects:
-
-class Post(Document):
-    title = StringField()
-    published = BooleanField()
-
-    @queryset_manager
-    def live_posts(clazz, queryset):
-        return queryset.filter(published=True)
-
-# Referencing Other Documents
+# # Object Oriented Features
+# #
+# # With MongoEngine being object oriented, you can also add methods to your subclassed document.
+# # Consider the following example where a function is used to modify the default queryset
+# # (which returns all objects of the collection). By using this, we can apply a default filter to the class
+# # and get only the desired objects:
 #
-# You can also use the ReferenceField object to create a reference from one document to another. MongoEngine handles
-# the lazy de-referencing automatically upon access, which is more robust and less error-prone than having
-# to remember to do it yourself everywhere in your code. An example:
-
-class Author(Document):
-    name = StringField()
-
-class Post(Document):
-    author = ReferenceField(Author)
-
-Post.objects.first().author.name
-
-# In the code above, using a document reference, we can easily find the author of the first post.
-# There are quite a few more field classes (and parameters) than what we introduced here, so be sure to check out
-# the documentation on Fields for more info.
-# From all of these examples you should be able to see that MongoEngine is well suited to manage your database
-# objects for just about any type of application. The features available at the developer’s disposal make it
-# incredibly easy to create an efficient and scalable program. In case you’re looking for more help related
-# to MongoEngine, be sure to check out their comprehensive user guide.
-# Conclusion
-# With Python being a high-level, highly scalable, modern language, it needs a database (and driver)
-# that can keep up to its potential, which is why MongoDB is such a good fit.
-# Free Bonus: Click here to download a Python + MongoDB project skeleton with full source code that shows you how
-# to access MongoDB from Python.
-# We saw in this article how we can exploit the strengths of MongoDB to our advantage and build a highly flexible
-# and scalable application. Feel free to let us know your thoughts in the comments section!
+# class Post(Document):
+#     title = StringField()
+#     published = BooleanField()
+#
+#     @queryset_manager
+#     def live_posts(clazz, queryset):
+#         return queryset.filter(published=True)
+#
+# # Referencing Other Documents
+# #
+# # You can also use the ReferenceField object to create a reference from one document to another. MongoEngine handles
+# # the lazy de-referencing automatically upon access, which is more robust and less error-prone than having
+# # to remember to do it yourself everywhere in your code. An example:
+#
+# class Author(Document):
+#     name = StringField()
+#
+# class Post(Document):
+#     author = ReferenceField(Author)
+#
+# Post.objects.first().author.name
+#
+# # In the code above, using a document reference, we can easily find the author of the first post.
+# # There are quite a few more field classes (and parameters) than what we introduced here, so be sure to check out
+# # the documentation on Fields for more info.
+# # From all of these examples you should be able to see that MongoEngine is well suited to manage your database
+# # objects for just about any type of application. The features available at the developer’s disposal make it
+# # incredibly easy to create an efficient and scalable program. In case you’re looking for more help related
+# # to MongoEngine, be sure to check out their comprehensive user guide.
+# # Conclusion
+# # With Python being a high-level, highly scalable, modern language, it needs a database (and driver)
+# # that can keep up to its potential, which is why MongoDB is such a good fit.
+# # Free Bonus: Click here to download a Python + MongoDB project skeleton with full source code that shows you how
+# # to access MongoDB from Python.
+# # We saw in this article how we can exploit the strengths of MongoDB to our advantage and build a highly flexible
+# # and scalable application. Feel free to let us know your thoughts in the comments section!
